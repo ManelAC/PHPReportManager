@@ -1,0 +1,26 @@
+div#container {
+	background-color: white;
+	margin: auto;
+}
+
+div#header {
+	height: 100px;
+	text-align: center;
+}
+
+div#leftcolumn {
+	float: left;
+	width: 8%;
+}
+
+div#body {
+	float: right;
+	width: 91%;
+	border-radius: 10px;
+}
+
+div#footer {
+	clear: both;
+	color: white;
+	text-align: center;
+}
