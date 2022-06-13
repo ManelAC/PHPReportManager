@@ -19,6 +19,10 @@
 			<a href="clients_new.php">New client</a><br>
 			<br>
 			<a href="clients_list.php">Clients list</a><br>
+			<br>
+			<a href="../reports/reports_new.php">New report</a><br>
+			<br>
+			<a href="../reports/reports_list.php">Reports list</a><br>
 		</div>
 		<div id="body">
 			<?php
@@ -37,33 +41,26 @@
 					$exception->getMessage();
 				}
 				
-				$client_id=$_GET['client_id'];
+				$client_id = $_GET['client_id'];
 			
 				foreach($database_connection->query('select * from clients where clients_id = '.$client_id.'') as $row) {
-					echo "<table border=0>";
-						echo "<tr>";
-							echo "<td>Name: ";
-								echo $row['clients_name'];
-							echo "</td>";
-						echo "</tr>";
-						echo "<tr>";
-							echo "<td>ID number: ";
-								 echo $row['clients_id_number'];
-							echo "</td>";
-						echo "</tr>";
-						echo "<tr>";
-							echo "<td>Email: ";
-								 echo $row['clients_email'];
-							echo "</td>";
-						echo "</tr>";
-						echo "<tr>";
-							echo "<td>Client type: ";
-								foreach($database_connection->query('select * from clients_type where clients_type_id = '.$row['clients_type'].'') as $rowct) {
-									echo $rowct['clients_type_description'];
-								}
-							echo "</td>";
-						echo "</tr>";
-					echo "</table>";
+					echo "<p>Name: ";
+						echo $row['clients_name'];
+					echo "</p>";
+
+					echo "<p>ID number: ";
+						 echo $row['clients_id_number'];
+					echo "</p>";
+
+					echo "<p>Email: ";
+						 echo $row['clients_email'];
+					echo "</p>";
+
+					echo "<p>Client type: ";
+						foreach($database_connection->query('select * from clients_type where clients_type_id = '.$row['clients_type'].'') as $rowct) {
+							echo $rowct['clients_type_description'];
+						}
+					echo "</p>";
 				}
 				$database_connection = null;
 			?>

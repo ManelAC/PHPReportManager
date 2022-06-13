@@ -19,6 +19,10 @@
 			<a href="clients_new.php">New client</a><br>
 			<br>
 			<a href="clients_list.php">Clients list</a><br>
+			<br>
+			<a href="../reports/reports_new.php">New report</a><br>
+			<br>
+			<a href="../reports/reports_list.php">Reports list</a><br>
 		</div>
 		<div id="body">
 			<?php
@@ -38,38 +42,16 @@
 				}
 			?>
 			<form action="clients_insert.php" method="post">
-				<table border=0>
-					<tr>
-						<td>
-							Name 
-							<textarea name="client_name_form" cols=80 rows=1></textarea>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							ID number 
-							<textarea name="client_id_number_form" cols=20 rows=1></textarea>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							Email 
-							<textarea name="client_email_form" cols=80 rows=1></textarea>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							Client type 
-							<select name="client_type_form">
-								<?php
-									foreach($database_connection->query('select * from clients_type order by clients_type_id') as $rowct) {
-										echo "<option value=".$rowct['clients_type_id'].">".$rowct['clients_type_description']."</option>";
-									}
-								?>
-							</select>
-						</td>
-					</tr>
-				</table>
+				<p>Name <textarea name="client_name_form" cols=80 rows=1></textarea></p>
+				<p>ID number <textarea name="client_id_number_form" cols=20 rows=1></textarea></p>
+				<p>Email <textarea name="client_email_form" cols=80 rows=1></textarea></p>
+				<p>Client type <select name="client_type_form">
+					<?php
+						foreach($database_connection->query('select * from clients_type order by clients_type_id') as $rowct) {
+							echo "<option value=".$rowct['clients_type_id'].">".$rowct['clients_type_description']."</option>";
+						}
+					?>
+					</select></p>
 				<br>
 				<input type="submit" value="Create client">
 			</form>

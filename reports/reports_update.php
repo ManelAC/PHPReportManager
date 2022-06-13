@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-	<title>New client</title>
+	<title>Edit report</title>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<link rel=stylesheet href="../style.css" type="text/css" />
 </head>
@@ -16,13 +16,13 @@
 		<div id="leftcolumn">
 			<a href="../index.php">Index</a><br>
 			<br>
-			<a href="clients_new.php">New client</a><br>
+			<a href="../clients/clients_new.php">New client</a><br>
 			<br>
-			<a href="clients_list.php">Clients list</a><br>
+			<a href="../clients/clients_list.php">Clients list</a><br>
 			<br>
-			<a href="../reports/reports_new.php">New report</a><br>
+			<a href="reports_new.php">New report</a><br>
 			<br>
-			<a href="../reports/reports_list.php">Reports list</a><br>
+			<a href="reports_list.php">Reports list</a><br>
 		</div>
 		<div id="body">
 			<?php
@@ -41,20 +41,33 @@
 					$exception->getMessage();
 				}
 				
-				$insert_statement = $database_connection->prepare("insert into clients(clients_name, clients_id_number, clients_email, clients_type)
-				values
-				(:client_name, :client_id_number, :client_email, :client_type)");
+				$id_report = $_POST['id_report_form'];
+			
+				$date = $_POST['report_year_form'].'/'.$_POST['report_month_form'].'/'.$_POST['report_day_form'];
 				
-				$insert_statement->execute(
+				$update_statement = $database_connection->prepare("update reports set
+					reports_client_id = :report_client_id, 
+					reports_title = :report_title, 
+					reports_state = :report_state, 
+					reports_date = :report_date, 
+					reports_invoice = :report_invoice, 
+					reports_photos = :report_photos, 
+					reports_authorisation = :report_authorisation
+					where reports_id = ".$id_report."");
+				
+				$update_statement->execute(
 					array(
-						':client_name' => $_POST['client_name_form'],
-						':client_id_number' => $_POST['client_id_number_form'],
-						':client_email' => $_POST['client_email_form'], 
-						':client_type' => $_POST['client_type_form']
+						':report_client_id' => $_POST['client_form'], 
+						':report_title' => $_POST['report_title_form'], 
+						':report_state' => $_POST['report_state_form'], 
+						':report_date' => $date, 
+						':report_invoice' => $_POST['invoice_form'], 
+						':report_photos' => $_POST['photos_form'], 
+						':report_authorisation' => $_POST['authorisation_form']
 					)
 				);
 				
-				echo "The client has been registered.";
+				echo "The report has been updated.";
 				
 				$database_connection = null;
 			?>

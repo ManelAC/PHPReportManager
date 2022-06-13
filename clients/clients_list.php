@@ -19,6 +19,10 @@
 			<a href="clients_new.php">New client</a><br>
 			<br>
 			<a href="clients_list.php">Clients list</a><br>
+			<br>
+			<a href="../reports/reports_new.php">New report</a><br>
+			<br>
+			<a href="../reports/reports_list.php">Reports list</a><br>
 		</div>
 		<div id="body">
 			<?php
@@ -40,7 +44,7 @@
 				$total_clients_count = $database_connection->query('select count(clients_id) from clients')->fetchColumn();
 				echo "<b>Number of clients = ".$total_clients_count."</b><br><br>";
 				
-				echo "<table border=1>";
+				echo "<table>";
 				echo "<tr><th>Client name</th><th>Customer type</th><th>Last report date</th></tr>";
 				
 				foreach($database_connection->query('select * from clients order by clients_name') as $row) {

@@ -19,6 +19,10 @@
 			<a href="clients_new.php">New client</a><br>
 			<br>
 			<a href="clients_list.php">Clients list</a><br>
+			<br>
+			<a href="../reports/reports_new.php">New report</a><br>
+			<br>
+			<a href="../reports/reports_list.php">Reports list</a><br>
 		</div>
 		<div id="body">
 			<?php
@@ -37,7 +41,7 @@
 					$exception->getMessage();
 				}
 				
-				$client_id=$_POST['client_id_form'];
+				$client_id = $_POST['client_id_form'];
 				
 				$update_statement = $database_connection->prepare("update clients set
 				clients_name = :client_name, 

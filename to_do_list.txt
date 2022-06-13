@@ -1,5 +1,4 @@
-- Reports section
 - Search section
 - Left lateral bar
 - Make the date of the current search initial default options between present date and a year before
-- Make the years of the possible report date between 2020 and current year
+
