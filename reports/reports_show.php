@@ -9,14 +9,7 @@
 </head>
 
 <?php
-	function received_or_not($option) {
-		if($option == 0) {
-			echo "Not received yet";
-		}
-		else {
-			echo "Received";
-		}
-	}
+	include'../php_functions/php_functions.php';
 ?>
 
 <body>
@@ -34,6 +27,8 @@
 			<a href="reports_new.php">New report</a><br>
 			<br>
 			<a href="reports_list.php">Reports list</a><br>
+			<br>
+			<a href="../search/search.php">Search</a><br>
 		</div>
 		<div id="body">
 			<?php

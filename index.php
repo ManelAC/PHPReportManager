@@ -23,6 +23,8 @@
 			<a href="reports/reports_new.php">New report</a><br>
 			<br>
 			<a href="reports/reports_list.php">Reports list</a><br>
+			<br>
+			<a href="search/search.php">Search</a><br>
 		</div>
 		<div id="body">
 			<p>This is the index of the application.</p>

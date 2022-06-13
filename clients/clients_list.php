@@ -23,6 +23,8 @@
 			<a href="../reports/reports_new.php">New report</a><br>
 			<br>
 			<a href="../reports/reports_list.php">Reports list</a><br>
+			<br>
+			<a href="../search/search.php">Search</a><br>
 		</div>
 		<div id="body">
 			<?php
@@ -80,8 +82,7 @@
 					
 					echo "<td><a href=\"clients_show.php?client_id=".$row['clients_id']."\">Show information</a></td>";
 					echo "<td><a href=\"clients_edit.php?client_id=".$row['clients_id']."\">Edit client</a></td>";
-					echo "<td>TO DO Search client's reports</td></tr>";
-					//echo "<td><a href=\"XXXXXXXX.php?client_id=".$row['clients_id']."\">Show client's reports</a></td></tr>";
+					echo "<td><a href=\"../search/search_reports_from_client.php?client_id=".$row['clients_id']."\">Show client's reports</a></td></tr>";
 				}
 				
 				echo "</table>";

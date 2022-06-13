@@ -23,6 +23,8 @@
 			<a href="reports_new.php">New report</a><br>
 			<br>
 			<a href="reports_list.php">Reports list</a><br>
+			<br>
+			<a href="../search/search.php">Search</a><br>
 		</div>
 		<div id="body">
 			<?php

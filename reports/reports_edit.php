@@ -9,16 +9,7 @@
 </head>
 
 <?php
-	function yes_no_menu($option) {
-		if($option == 0) {
-			echo "<option value = 0 selected>Not received yet</option>";
-			echo "<option value = 1>Received</option>";
-		}
-		else {
-			echo "<option value = 0>Not received yet</option>";
-			echo "<option value = 1 selected>Received</option>";
-		}
-	}
+	include'../php_functions/php_functions.php';
 ?>
 
 <body>
@@ -36,6 +27,8 @@
 			<a href="reports_new.php">New report</a><br>
 			<br>
 			<a href="reports_list.php">Reports list</a><br>
+			<br>
+			<a href="../search/search.php">Search</a><br>
 		</div>
 		<div id="body">
 			<?php

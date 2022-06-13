@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-	<title>Reports list</title>
+	<title>Search result</title>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<link rel=stylesheet href="../style.css" type="text/css" />
 </head>
@@ -24,11 +24,11 @@
 			<br>
 			<a href="../clients/clients_list.php">Clients list</a><br>
 			<br>
-			<a href="reports_new.php">New report</a><br>
+			<a href="../reports/reports_new.php">New report</a><br>
 			<br>
-			<a href="reports_list.php">Reports list</a><br>
+			<a href="../reports/reports_list.php">Reports list</a><br>
 			<br>
-			<a href="../search/search.php">Search</a><br>
+			<a href="search.php">Search</a><br>
 		</div>
 		<div id="body">
 			<?php
@@ -47,8 +47,7 @@
 					$exception->getMessage();
 				}
 				
-				$number_of_reports = $database_connection->query('select count(reports_id) from reports')->fetchColumn();
-				echo "<p><b>Total number of reports = ".$number_of_reports."</b></p>";
+				$client_id = $_POST['client_id_form'];
 				
 				foreach($database_connection->query('select * from reports_state order by reports_state_id asc') as $row) {
 					echo "<hr>";
@@ -57,7 +56,7 @@
 					echo "<table>";
 					echo "<tr><th>Client</th><th>Report title</th><th>Date</th><th>Invoice</th><th>Photos</th><th>Authorisation</th></tr>";
 					
-					foreach($database_connection->query('select * from reports where reports_state = '.$row['reports_state_id'].' order by reports_date asc') as $rowreport) {
+					foreach($database_connection->query('select * from reports where (reports_state = '.$row['reports_state_id'].') and (reports_client_id = '.$client_id.') order by reports_date asc') as $rowreport) {
 						
 						foreach($database_connection->query('select clients_name from clients where clients_id = '.$rowreport['reports_client_id'].'') as $rowname) {
 							echo "<tr><td>".$rowname['clients_name']."</td>";
