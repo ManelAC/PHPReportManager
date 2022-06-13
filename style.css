@@ -1,3 +1,16 @@
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+	border: 1px solid;
+	padding: 10px;
+}
+
+th:hover, td:hover {
+	background-color: #00ff80;
+}
+
 div#container {
 	background-color: white;
 	margin: auto;

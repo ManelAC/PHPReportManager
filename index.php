@@ -14,6 +14,17 @@
 			<h1>PHP Report Manager</h1>
 		</div>
 		<div id="leftcolumn">
+			<a href="index.php">Index</a><br>
+			<br>
+			<a href="clients/clients_new.php">New client</a><br>
+			<br>
+			<a href="clients/clients_list.php">Clients list</a><br>
+			<br>
+			<a href="reports/reports_new.php">New report</a><br>
+			<br>
+			<a href="reports/reports_list.php">Reports list</a><br>
+			<br>
+			<a href="search/search.php">Search</a><br>
 		</div>
 		<div id="body">
 			<p>This is the index of the application.</p>
